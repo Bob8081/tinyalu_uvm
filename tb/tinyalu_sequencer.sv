@@ -1,4 +1,4 @@
-class tinyalu_sequencer extends uvm_sequencer #(sequence_item);
+class tinyalu_sequencer extends uvm_sequencer #(tinyalu_seq_item);
 
 // registeration
 `uvm_component_utils(tinyalu_sequencer)

@@ -3,7 +3,7 @@ class tinyalu_seq_item extends uvm_sequence_item;
 // Signal Fields decleration 
 rand bit [7:0]  A;
 rand bit [7:0]  B;
-rand bit [2:0]  op;
+rand op_t  op;
 bit [15:0] result;
 
 

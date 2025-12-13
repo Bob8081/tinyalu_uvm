@@ -78,7 +78,7 @@ class tinyalu_coverage extends uvm_subscriber #(tinyalu_seq_item);
 
 
 	//the implementation function of the analysis imp 
-	function void write(sequence_item t);
+	function void write(tinyalu_seq_item t);
 		A=t.A;
 		B=t.B;
 		op=t.op;

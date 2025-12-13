@@ -1,4 +1,4 @@
-class tinyalu_sequence extends uvm_sequence #(sequence_item);
+class tinyalu_sequence extends uvm_sequence #(tinyalu_seq_item);
 
 // registeration
 `uvm_object_utils(tinyalu_sequence)
@@ -8,17 +8,22 @@ function new (string name="tinyalu_sequence");
    super.new(name);
 endfunction
 
-// generation of a sequence os sequence_item
-virtual task body (sequence_item transaction);
-transaction= sequence_item::type_id::create("transaction");
+// generation of a sequence os tinyalu_seq_item
+virtual task body ();
+   tinyalu_seq_item transaction;
+   repeat (5000) begin
 
-repeat (100) begin
-strat_item (transaction); // wait until get_next_item from driver
+   // `uvm_info("SEQ", "I am starting a sequence", UVM_LOW)
 
-if (! transaction.randomize() )
-   `uvm_fatal("FATAL",$sformatf(" RANDOMIZATION IS FAILED !! "))
+   transaction = tinyalu_seq_item::type_id::create("transaction");
+   start_item (transaction); // wait until get_next_item from driver
 
-finish_item (transaction); // wait until item_done from driver
+   if (! transaction.randomize() )
+      `uvm_fatal("FATAL",$sformatf(" RANDOMIZATION FAILED !! "))
+
+   finish_item (transaction); // wait until item_done from driver
+
+   // `uvm_info("SEQ", "I am starting a sequence", UVM_LOW)
 end
 
 endtask: body
