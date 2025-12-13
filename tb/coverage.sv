@@ -1,13 +1,13 @@
 // coverage class 
 
-class coverage extends uvm_subscriber #(sequence_item);
+class tinyalu_coverage extends uvm_subscriber #(tinyalu_seq_item);
 	//regestration
-	`uvm_component_utils(coverage)
+	`uvm_component_utils(tinyalu_coverage)
 	
 	//variables
 	bit [7 : 0] A ;
 	bit [7 : 0] B ;		
-	bit [2 : 0] op ;
+	op_t op ;
 	
 	//operations-only cover group
 	covergroup op_cov;
