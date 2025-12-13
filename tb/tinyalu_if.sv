@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 interface tinyalu_if (input logic clk, input logic reset_n);
 
     // DUT Signals
