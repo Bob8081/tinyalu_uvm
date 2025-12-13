@@ -11,7 +11,7 @@ bit [15:0] result;
 `uvm_object_utils_begin (tinyalu_seq_item)
 `uvm_field_int (A,UVM_ALL_ON)
 `uvm_field_int (B,UVM_ALL_ON)
-`uvm_field_int (op,UVM_ALL_ON)
+`uvm_field_enum (op_t,op,UVM_ALL_ON)
 `uvm_field_int (result,UVM_ALL_ON)
 `uvm_object_utils_end
 
