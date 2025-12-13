@@ -31,19 +31,22 @@ class tinyalu_coverage extends uvm_subscriber #(tinyalu_seq_item);
 			bins  And = {3'b010};
 			bins Xor = {3'b011};
 			bins Mul = {3'b100};
-			option.weight = 0;
+			// option.weight = 0; //does work and still the coverpoint is included in coverage percentage
+			type_option.weight =0; //not included in coverage percentage
 		}
 		in_a : coverpoint A {
 			bins all_zeros = {'h00};
 			bins all_ones = {'hFF};
 			bins random = {['h01 : 'hFE]};
-			option.weight=0;
+			// option.weight=0; //does work and still the coverpoint is included in coverage percentage
+			type_option.weight =0; //not included in coverage percentage
 		}
 		in_b : coverpoint B {
 			bins all_zeros = {'h00};
 			bins all_ones = {'hFF};
 			bins random = {['h01 : 'hFE]};
-			option.weight =0;
+			// option.weight =0; //does work and still the coverpoint is included in coverage percentage
+			type_option.weight =0; //not included in coverage percentage
 		}
 		max_min_on_all_op : cross all_op, in_a, in_b{
 			//add_bins
@@ -64,7 +67,7 @@ class tinyalu_coverage extends uvm_subscriber #(tinyalu_seq_item);
 			//random case
 			bins random_values = binsof(in_a.random) || binsof(in_b.random) ;
 			
-			option.weight =1; //only the cross is included in the coverage percentage
+			type_option.weight =1; //only the cross is included in the coverage percentage
 			}
 	endgroup
 
