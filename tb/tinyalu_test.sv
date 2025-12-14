@@ -34,27 +34,3 @@ task run_phase(uvm_phase phase);
 endtask
 
 endclass
-
-
-// // Sanity Test (Extends Base)
-// class tinyalu_sanity_test extends tinyalu_base_test;
-// `uvm_component_utils(tinyalu_sanity_test)
-
-// function new(string name = "tinyalu_sanity_test", uvm_component parent = null);
-//     super.new(name, parent);
-// endfunction
-
-// // Override the Run Phase to run a different sequence
-// task run_phase(uvm_phase phase);
-//     sanity_seq seq;
-
-//     phase.raise_objection(this);
-    
-//     `uvm_info("TEST", "Starting Sanity Sequence...", UVM_LOW)
-//     seq = sanity_seq::type_id::create("seq");
-//     seq.start(env.agent.sequencer);
-    
-//     phase.drop_objection(this);
-// endtask
-
-// endclass

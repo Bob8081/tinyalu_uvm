@@ -17,8 +17,7 @@ class tinyalu_driver extends uvm_driver #(tinyalu_seq_item);
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
-        if(!uvm_config_db #(virtual tinyalu_if)::get(this, "", "vif", vif))
-            `uvm_fatal(get_type_name(), "Cannot get interface");
+        
     endfunction
 
     //connection
@@ -29,7 +28,7 @@ class tinyalu_driver extends uvm_driver #(tinyalu_seq_item);
     //run
     task run_phase(uvm_phase phase);
 
-        // Initialize signals
+        // Initialize signals to avoid x propogation
 
         vif.cb_drv.A     <= 0;
         vif.cb_drv.B     <= 0;
@@ -37,14 +36,14 @@ class tinyalu_driver extends uvm_driver #(tinyalu_seq_item);
         vif.cb_drv.start <= 1'b0;
 
 
-        // `uvm_info("DRV", "I am driving", UVM_LOW)
+        // `uvm_info("DRV", "I am driving", UVM_LOW) //debug
         wait(vif.driver_mp.reset_n === 1'b1);
-        // `uvm_info("DRV", "Reset done", UVM_LOW)   
+        // `uvm_info("DRV", "Reset done", UVM_LOW)   //debug
 
         forever begin
             
             seq_item_port.get_next_item(req);
-            // `uvm_info("DRV", "I am driving2", UVM_LOW)
+            // `uvm_info("DRV", "I am driving2", UVM_LOW) //debug
 
             @(vif.cb_drv)
             vif.cb_drv.A     <= req.A;
@@ -52,7 +51,7 @@ class tinyalu_driver extends uvm_driver #(tinyalu_seq_item);
             vif.cb_drv.op    <= req.op;
             vif.cb_drv.start <= 1'b1;
 
-            // `uvm_info("DRV", $sformatf("Driving A: 0x%0h, B: 0x%0h, OP: %0d", vif.cb_drv.A, vif.cb_drv.B, vif.cb_drv.op), UVM_LOW)
+            // `uvm_info("DRV", $sformatf("Driving A: 0x%0h, B: 0x%0h, OP: %0d",  vif.cb_drv.A, vif.cb_drv.B, vif.cb_drv.op), UVM_LOW) //debug
 
             if (req.op == no_op) begin
                 // Special Handling for NOP
