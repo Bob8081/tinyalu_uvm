@@ -1,0 +1,2 @@
+var g_data = ["","tinyalu_if.sv","tinyalu_pkg.sv","verilog_src/uvm-1.1d/src/base/uvm_registry.svh","verilog_src/uvm-1.1d/src/comps/uvm_subscriber.svh","tinyalu_coverage.sv","verilog_src/uvm-1.1d/src/comps/uvm_driver.svh","tinyalu_driver.sv","verilog_src/uvm-1.1d/src/seq/uvm_sequence.svh","tinyalu_sequence.sv","tinyalu_seq_item.sv","tinyalu_monitor.sv","tinyalu_sequencer.sv","tinyalu_agent.sv","tinyalu_scoreboard.sv","tinyalu_env.sv","tinyalu_test.sv","tinyalu_top.sv","../rtl/tinyalu.sv"];
+processSrcNamesData(g_data);

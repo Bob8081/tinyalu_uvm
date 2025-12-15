@@ -2,7 +2,7 @@
 vlog -f tb.f
 
 # Run simulation with coverage
-vsim -coverage work.tinyalu_top
+vsim -coverage -voptargs=+acc work.tinyalu_top
 
 set NoQuitOnFinish 1
 onbreak {resume}

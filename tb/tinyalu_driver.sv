@@ -15,9 +15,7 @@ class tinyalu_driver extends uvm_driver #(tinyalu_seq_item);
 
     //build
     function void build_phase(uvm_phase phase);
-        super.build_phase(phase);
-
-        
+        super.build_phase(phase);    
     endfunction
 
     //connection

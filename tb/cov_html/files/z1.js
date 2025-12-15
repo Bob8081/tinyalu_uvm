@@ -1,0 +1,2 @@
+var g_data = {"12":{"st":"inst","pa":0,"n":"/tinyalu_pkg","l":"SystemVerilog","sn":2,"du":{"n":"work.tinyalu_pkg","s":2,"b":1},"bc":[{"n":"tinyalu_pkg","s":12,"z":1}],"loc":{"cp":100.00,"data":{"gb":[18,18],"cvpc":[5],"g":[2,100.00]}}},"2":{"st":"du","pa":0,"n":"work.tinyalu_pkg","l":"SystemVerilog","sn":2,"one_inst":12,"loc":{"cp":100.00,"data":{"gb":[18,18],"cvpc":[5],"g":[2,100.00]}}}};
+processSummaryData(g_data);
