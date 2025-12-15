@@ -16,9 +16,6 @@ class tinyalu_driver extends uvm_driver #(tinyalu_seq_item);
     //build
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-
-        if(!uvm_config_db #(virtual tinyalu_if)::get(this, "", "vif", vif))
-            `uvm_fatal(get_type_name(), "Cannot get interface");
     endfunction
 
     //connection
