@@ -34,7 +34,14 @@ class tinyalu_monitor extends uvm_monitor;
             trans_collected.op  = op_t'(vif.cb_mon.op); // Cast to enum
 
             // Wait for Done signal
-            @(vif.cb_mon iff vif.cb_mon.done === 1);
+
+            if (trans_collected.op == no_op) begin
+                // Special Handling for NOP
+                @(vif.cb_mon);
+            end else begin
+                // Standard Handling (Add, Mul, etc):
+                @(vif.cb_mon iff vif.cb_mon.done === 1);
+            end
 
             // Sample Output (Result)
             trans_collected.result = vif.cb_mon.result;

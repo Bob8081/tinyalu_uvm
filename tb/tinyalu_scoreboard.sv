@@ -50,12 +50,12 @@ class tinyalu_scoreboard extends uvm_scoreboard;
 
             // Check Logic
             if (item.result !== expected_result) begin
-                `uvm_error("SCBD", $sformatf("MISMATCH! Op: %s | Exp: 0x%0h | Act: 0x%0h", 
-                    item.op.name(), expected_result, item.result))
+                `uvm_error("SCBD", $sformatf("MISMATCH! A: %0h B: %0h Op: %s | Exp: 0x%0h | Act: 0x%0h", item.B
+                , item.A, item.op.name(), expected_result, item.result))
                 mismatch++;
             end else begin
                 `uvm_info("SCBD", $sformatf("MATCH! Op: %s | Result: 0x%0h", 
-                    item.op.name(), item.result), UVM_LOW)
+                    item.op.name(), item.result), UVM_HIGH)
                 match++;
             end
         end
